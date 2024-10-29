@@ -7,7 +7,15 @@ import './App.css';
 
 const App = () => {
   return (
-    <div className='underline text 3xl'>App</div>
+    <div>
+      <BrowserRouter>
+      <div className='flex relative dark:bg-main-dark-bg'>
+        <div className='fixed right-4 bottom-4'>
+
+        </div>
+      </div>
+      </BrowserRouter>
+    </div>
   )
 }
 
