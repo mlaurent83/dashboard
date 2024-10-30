@@ -38,6 +38,11 @@ const activeMenu = false;
             Navbar
           </div>
         </div>
+        <div>
+          <Routes>
+            <Route path="/" element = "ECommerce"/>
+          </Routes>
+        </div>
       </div>
       </BrowserRouter>
     </div>
