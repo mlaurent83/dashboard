@@ -37,11 +37,16 @@ const Ecommerce = () => {
             >
               <button type="button"
               style={{ color: item.iconColor,
-                backgroundColor: item.iconBg
-              }}
+                backgroundColor: item.iconBg}}
+                className='text-2xl opacity-0.9 rounded-full p-4 hover:drop-shadow-xl'
               >
                 {item.icon}
               </button>
+              <p className='mt-3'>
+                <span className='text-lg font-semibold'>
+                  {item.amount}
+                </span>
+              </p>
             </div>
           ))}
         </div>
