@@ -1,6 +1,6 @@
 import React from 'react'
 import { BsCurrencyDollar } from 'react-icons/bs';
-import { GoPrimitiveDot } from 'react-icons/go';
+import { GoDot } from 'react-icons/go';
 import { Stacked, Pie, Button, LineChart, SparkLine } from '../components';
 import { earningData, medicalproBranding, recentTransactions, weeklyStats, dropdownData, SparklineAreaData, ecomPieChartData } from '../data/dummy';
 import { useStateContext } from '../contexts/ContextProvider';
@@ -62,6 +62,14 @@ const Ecommerce = () => {
            md:w-780'>
             <div className='flex justify-between'>
               <p className='font-semibold text-xl'>Revenue Updates</p>
+              <div className='flex items-center gap-4'>
+                <p>
+                  <span>
+                  <GoDot />
+
+                  </span>
+                </p>
+              </div>
             </div>
           </div>
        </div>
