@@ -63,10 +63,22 @@ const Ecommerce = () => {
             <div className='flex justify-between'>
               <p className='font-semibold text-xl'>Revenue Updates</p>
               <div className='flex items-center gap-4'>
-                <p>
+                <p className='flex items-center gap-2 text-gray-600
+                hover:drop-shadow-xl'>
                   <span>
                   <GoDot />
-
+                  </span>
+                  <span>
+                    Expense
+                  </span>
+                </p>
+                <p className='flex items-center gap-2 text-green-400
+                hover:drop-shadow-xl'>
+                  <span>
+                  <GoDot />
+                  </span>
+                  <span>
+                    Budget
                   </span>
                 </p>
               </div>
