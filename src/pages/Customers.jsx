@@ -14,14 +14,15 @@ const Customers = () => {
         allowSorting
         allowExcelExport
         allowPdfExport
-        toolbar={['Search']}
+        toolbar={['Delete']}
+        editSettings={{ allowDeleting: true, allowEditing: true}}
         width="auto"
       >
         <ColumnsDirective>
           {/* eslint-disable-next-line react/jsx-props-no-spreading */}
           {customersGrid.map((item, index) => <ColumnDirective key={index} {...item} />)}
         </ColumnsDirective>
-        <Inject services={[ Page, Toolbar]} />
+        <Inject services={[ Page, Toolbar, Selection, Edit, Sort, Filter]} />
       </GridComponent>
     </div>
   )
