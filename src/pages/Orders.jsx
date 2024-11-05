@@ -13,7 +13,10 @@ const Orders = () => {
       title="Orders"
       category="Page"
       />
-      <GridComponent>
+      <GridComponent
+        id="gridcomp"
+        dataSource={ordersData}
+      >
         <ColumnsDirective>
         {ordersGrid.map((item, index)=>(
           <ColumnDirective key={index} {...item}/>
