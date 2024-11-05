@@ -1,9 +1,31 @@
-import React from 'react'
+import React from 'react';
+import { GridComponent, ColumnsDirective, ColumnDirective, Page,
+Search, Inject } from '@syncfusion/ej2-react-grids';
+
+import { employeesData, employeesGrid } from '../data/dummy';
+import { Header } from '../components';
 
 const Employees = () => {
+  const editing = { allowDeleting: true, allowEditing: true };
   return (
-    <div>Employees</div>
-  )
-}
-
-export default Employees
+    <div className="m-2 md:m-10 mt-24 p-2 md:p-10 bg-white rounded-3xl">
+      <Header category="Page" title="Orders" />
+      <GridComponent
+        id="gridcomp"
+        dataSource={employeesData}
+        allowPaging
+        allowSorting
+        allowExcelExport
+        allowPdfExport
+        editSettings={editing}
+      >
+        <ColumnsDirective>
+          {/* eslint-disable-next-line react/jsx-props-no-spreading */}
+          {employeesGrid.map((item, index) => <ColumnDirective key={index} {...item} />)}
+        </ColumnsDirective>
+        <Inject services={[ Page, Search]} />
+      </GridComponent>
+    </div>
+  );
+};
+export default Employees;
