@@ -14,6 +14,11 @@ md:p-10 bg-white rounded-3xl'>
       category = "App"
       title = "Calendar"
       />
+      <ScheduleComponent>
+        <Inject services={[Day, Week, WorkWeek, Month,
+          Agenda, Resize, DragAndDrop
+        ]}/>
+      </ScheduleComponent>
     </div>
   )
 }
