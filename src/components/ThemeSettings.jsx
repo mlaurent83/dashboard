@@ -17,9 +17,13 @@ const ThemeSettings = () => {
           type="button"
           onClick={() => {}}
           style={{color: 'rgb(153, 171, 180)', borderRadius: '50%'}}
+          className='text-2xl p-3 hover:drop-shadow-xl hover:bg-light-gray'
           >
             <MdOutlineCancel/>
           </button>
+        </div>
+        <div className='flex-col border-t-1 border-color p-4 ml-4'>
+          <p className='font-semibold text-lg'>Theme Options</p>
         </div>
       </div>
     </div>
