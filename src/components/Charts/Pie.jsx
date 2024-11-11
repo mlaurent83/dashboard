@@ -1,9 +1,29 @@
 import React from 'react'
+import { AccumulationChartComponent, AccumulationSeriesCollectionDirective, AccumulationSeriesDirective, AccumulationLegend, PieSeries, AccumulationDataLabel, Inject, AccumulationTooltip } from '@syncfusion/ej2-react-charts';
+import { useStateContext } from '../../contexts/ContextProvider'
 
-const Pie = () => {
+const LineChart = () => {
+
+  const {currentMode} = useStateContext();
+
   return (
-    <div>Pie</div>
+    <ChartComponent
+      id="line-chart"
+      height="420px"
+      primaryXAxis={LinePrimaryXAxis}
+      primaryYAxis={LinePrimaryYAxis}
+      chartArea={{border: {width: 0}}}
+      tooltip={{enable: true}}
+      background={currentMode === 'Dark' ? '#33373E' : '#fff'}
+    >
+      <Inject services={[LineSeries, DateTime, Legend, Tooltip]}/>
+      <SeriesCollectionDirective>
+        {lineCustomSeries.map((item, index) =>
+          <SeriesDirective key={index} {...item}/>
+        )}
+      </SeriesCollectionDirective>
+    </ChartComponent>
   )
 }
 
-export default Pie
+export default LineChart
