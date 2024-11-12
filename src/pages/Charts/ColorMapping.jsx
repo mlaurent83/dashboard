@@ -6,38 +6,44 @@ import { useStateContext } from '../../contexts/ContextProvider'
 import { ChartsHeader } from '../../components'
 
 
-const Financial = () => {
+const ColorMapping = () => {
   const { currentMode } = useStateContext();
 
   return (
     <div className="m-4 md:m-10 mt-24 p-10 bg-white dark:bg-secondary-dark-bg rounded-3xl">
-      <ChartsHeader category="Financial" title="AAPLE Historical" />
+      <ChartsHeader category="Color Mapping" title="USA CLIMATE - WEATHER BY MONTH" />
       <div className="w-full">
         <ChartComponent
           id="charts"
-          primaryXAxis={FinancialPrimaryXAxis}
-          primaryYAxis={FinancialPrimaryYAxis}
+          primaryXAxis={ColorMappingPrimaryXAxis}
+          primaryYAxis={ColorMappingPrimaryYAxis}
           chartArea={{ border: { width: 0 } }}
-          tooltip={{ enable: true, shared: true }}
-          crosshair={{ enable: true, lineType: 'Vertical', line: { width: 0 } }}
+          tooltip={{ enable: true}}
+          legendSettings={{ mode: 'Range', background: 'white' }}
           background={currentMode === 'Dark' ? '#33373E' : '#fff'}
         >
-          <Inject services={[HiloSeries, Tooltip, DateTime, Logarithmic, Crosshair, Zoom]} />
+          <Inject services={[ColumnSeries, Tooltip, Category, Legend]} />
           <SeriesCollectionDirective>
-            <SeriesDirective
-              dataSource={returnValue}
+          <SeriesDirective
+              dataSource={colorMappingData[0]}
+              name="USA"
               xName="x"
-              yName="low"
-              name="Apple Inc"
-              type="Hilo"
-              low="low"
-              high="high"
+              yName="y"
+              type="Column"
+              cornerRadius={{
+                topLeft: 10,
+                topRight: 10,
+              }}
             />
           </SeriesCollectionDirective>
+          <RangeColorSettingsDirective>
+            {/* eslint-disable-next-line react/jsx-props-no-spreading */}
+            {rangeColorMapping.map((item, index) => <RangeColorSettingDirective key={index} {...item} />)}
+          </RangeColorSettingsDirective>
         </ChartComponent>
       </div>
     </div>
   );
 };
 
-export default Financial;
+export default ColorMapping;
